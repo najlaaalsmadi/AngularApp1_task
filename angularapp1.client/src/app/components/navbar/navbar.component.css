@@ -1,0 +1,14 @@
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+  nav ul li {
+    display: inline-block;
+  }
+
+    nav ul li a {
+      text-decoration: none;
+      padding: 10px;
+    }
