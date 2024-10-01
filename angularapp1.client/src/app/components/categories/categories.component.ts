@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -11,7 +12,7 @@ export class CategoryComponent implements OnInit {
 
   categories: Category[] = [];
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private router: Router) { }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(data => {
@@ -19,5 +20,10 @@ export class CategoryComponent implements OnInit {
     }, error => {
       console.error('Error fetching categories', error);
     });
+  }
+
+  // التنقل إلى صفحة المنتجات مع تمرير CategoryId
+  goToCategory(categoryId: number): void {
+    this.router.navigate(['/products', categoryId]);  // التوجه إلى صفحة المنتجات مع تمرير CategoryId
   }
 }

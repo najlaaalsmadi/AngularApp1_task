@@ -1,4 +1,4 @@
-<p>categories works!</p>
+<p>Categories works!</p>
 <div class="categories">
   <h2>Our Categories</h2>
   <div class="container">
@@ -8,5 +8,17 @@
         {{ category.name }}
       </li>
     </ul>
+
+    <div class="card" style="width: 18rem;" *ngFor="let category of categories">
+      <img src="../../assets/image/slide.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"> {{ category.name }}</h5>
+        <h5 class="card-title"> {{ category.categoryId }}</h5>
+
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- استخدم (click) لتمرير id -->
+        <a routerLink="/products/{{category.categoryId}}" class="btn btn-primary" >Go somewhere</a>
+      </div>
+    </div>
   </div>
 </div>

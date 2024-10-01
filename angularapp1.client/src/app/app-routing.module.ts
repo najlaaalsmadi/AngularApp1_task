@@ -7,8 +7,9 @@ import { CategoryComponent } from './components/categories/categories.component'
 const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'products', component: ProductsComponent },
+  { path: '', redirectTo: '/category', pathMatch: 'full' },
+  { path: 'products/:categoryId', component: ProductsComponent }  // مسار صفحة المنتجات
 
-  { path: '', redirectTo: '/category', pathMatch: 'full' }
 ];
 
 @NgModule({

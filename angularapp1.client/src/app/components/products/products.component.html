@@ -1,5 +1,17 @@
 <p>products works!</p>
 <div class="products">
   <h2>Our Products</h2>
-  <!-- قائمة المنتجات -->
+  <div class="products">
+    <h2>Products for Category {{ categoryId }}</h2>
+    <div *ngIf="products.length > 0">
+      <div *ngFor="let product of products" class="product-card">
+        <h5>{{ product.description }}</h5>
+        <p>Price: {{ product.price }}</p>
+        <img [src]="product.imgprodect" alt="Product Image" />
+      </div>
+    </div>
+    <div *ngIf="products.length === 0">
+      <p>No products available for this category.</p>
+    </div>
+  </div>
 </div>
