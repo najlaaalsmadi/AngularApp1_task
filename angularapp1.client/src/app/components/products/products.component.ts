@@ -32,4 +32,5 @@ export class ProductsComponent implements OnInit {
       console.error('categoryId is null');
     }
   }
+
 }

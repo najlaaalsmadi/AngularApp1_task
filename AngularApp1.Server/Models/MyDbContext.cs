@@ -35,6 +35,8 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<Subscription> Subscriptions { get; set; }
 
+    public virtual DbSet<User> Users { get; set; }
+
     public virtual DbSet<Wishlist> Wishlists { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -256,6 +258,31 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.SubscriptionName)
                 .HasMaxLength(150)
                 .HasColumnName("subscriptionName");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F40D87BF4");
+
+            entity.HasIndex(e => e.Email, "UQ__Users__AB6E61643499D25F").IsUnique();
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("created_at");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .HasColumnName("role");
         });
 
         modelBuilder.Entity<Wishlist>(entity =>

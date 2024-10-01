@@ -1,24 +1,42 @@
 <p>Categories works!</p>
+
+<div *ngFor="let item of fruits">
+  {{ item }}
+</div>
+<div [ngSwitch]="selectedFruit">
+  <div *ngSwitchCase="'Apple'">You selected an Apple!</div>
+  <div *ngSwitchCase="'Banana'">You selected a Banana!</div>
+  <div *ngSwitchCase="'Cherry'">You selected a Cherry!</div>
+  <div *ngSwitchDefault>Please select a fruit!</div>
+</div>
+
+<!-- مثال لتغيير القيمة -->
+<button (click)="selectedFruit = 'Apple'">Select Apple</button>
+<button (click)="selectedFruit = 'Banana'">Select Banana</button>
+<button (click)="selectedFruit = 'Cherry'">Select Cherry</button>
+<button (click)="selectedFruit = 'Orange'">Select Orange</button>
+
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'yello'">color is red</p>
+  <p *ngSwitchCase="'pink'">color is pink</p> <!---->
+  <div *ngSwitchDefault>Please select a fruit!</div>
+
+
+</div>
+<p *ngIf="display==true">hello world</p>
+
 <div class="categories">
-  <h2>Our Categories</h2>
-  <div class="container">
-    <h2>Categories</h2>
-    <ul class="list-group">
-      <li *ngFor="let category of categories" class="list-group-item">
-        {{ category.name }}
-      </li>
-    </ul>
 
-    <div class="card" style="width: 18rem;" *ngFor="let category of categories">
-      <img src="../../assets/image/slide.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"> {{ category.name }}</h5>
-        <h5 class="card-title"> {{ category.categoryId }}</h5>
+  <div class="card" style="width: 18rem;" *ngFor="let category of categories">
+    <img src="../../assets/image/slide.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ category.name }}</h5>
+      <h5 class="card-title"> {{ category.categoryId }}</h5>
 
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <!-- استخدم (click) لتمرير id -->
-        <a routerLink="/products/{{category.categoryId}}" class="btn btn-primary" >Go somewhere</a>
-      </div>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <!-- استخدم (click) لتمرير id -->
+      <a routerLink="/products/{{category.categoryId}}" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
 </div>
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////-->

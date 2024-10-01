@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularApp1.Server", "AngularApp1.Server\AngularApp1.Server.csproj", "{5956CEF8-B214-476F-86BF-687B56137F1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularApp1.Server", "AngularApp1.Server\AngularApp1.Server.csproj", "{5956CEF8-B214-476F-86BF-687B56137F1E}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "angularapp1.client", "angularapp1.client\angularapp1.client.esproj", "{8585641E-4AC1-4FCC-A261-CB8A36FBDD3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DTO", "DTO", "{F27D73BA-A044-42A4-9459-A7FBD0DC554F}"
+	ProjectSection(SolutionItems) = preProject
+		addUserDTO.cs = addUserDTO.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
