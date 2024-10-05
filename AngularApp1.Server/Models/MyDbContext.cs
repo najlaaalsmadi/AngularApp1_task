@@ -215,33 +215,29 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<Service>(entity =>
         {
-            entity.HasKey(e => e.ServiceId).HasName("PK__Service__4550733FC260578B");
+            entity.HasKey(e => e.ServiceId).HasName("PK__Service__4550733F461867AD");
 
             entity.ToTable("Service");
 
-            entity.Property(e => e.ServiceId)
-                .ValueGeneratedNever()
-                .HasColumnName("serviceID");
+            entity.Property(e => e.ServiceId).HasColumnName("serviceID");
             entity.Property(e => e.ServiceDescription).HasMaxLength(500);
             entity.Property(e => e.ServiceName).HasMaxLength(50);
         });
 
         modelBuilder.Entity<SubService>(entity =>
         {
-            entity.HasKey(e => e.SubServiceId).HasName("PK__subServi__C5C51FFA3CF3CD31");
+            entity.HasKey(e => e.SubServiceId).HasName("PK__subServi__C5C51FFAF9A7D744");
 
             entity.ToTable("subService");
 
-            entity.Property(e => e.SubServiceId)
-                .ValueGeneratedNever()
-                .HasColumnName("subServiceID");
+            entity.Property(e => e.SubServiceId).HasColumnName("subServiceID");
             entity.Property(e => e.ServiceId).HasColumnName("serviceID");
             entity.Property(e => e.SubServiceDescription).HasMaxLength(500);
             entity.Property(e => e.SubServiceName).HasMaxLength(50);
 
             entity.HasOne(d => d.Service).WithMany(p => p.SubServices)
                 .HasForeignKey(d => d.ServiceId)
-                .HasConstraintName("FK__subServic__servi__71D1E811");
+                .HasConstraintName("FK__subServic__servi__17F790F9");
         });
 
         modelBuilder.Entity<Subscription>(entity =>

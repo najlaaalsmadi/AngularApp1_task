@@ -36,8 +36,15 @@ export class LoginComponent {
         (response: any) => {
           console.log('Login successful', response);
           localStorage.setItem('user', JSON.stringify(response)); // تخزين معلومات المستخدم
-          this._router.navigate(['/category']); // توجيه المستخدم بعد النجاح
-          alert('تم الدخول بنجاح'); // رسالة خطأ
+
+          // التحقق من دور المستخدم
+          if (response.role === 'admin') {
+            this._router.navigate(['/dashboard']); // توجيه إلى لوحة تحكم المدير
+          } else {
+            this._router.navigate(['/category']); // توجيه إلى صفحة المستخدم العادي
+          }
+
+          alert('تم الدخول بنجاح'); // رسالة نجاح
 
         },
         (error: any) => {

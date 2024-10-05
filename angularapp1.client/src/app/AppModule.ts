@@ -12,6 +12,10 @@ import { RouterModule } from "@angular/router";
 import { RegisterComponent } from "./register/register.component";
 import { FormsModule } from "@angular/forms"; // تأكد من استيراد FormsModule
 import { LoginComponent } from "./login/login.component";
+import { DashboardComponent } from "./admain/dashboard/dashboard.component";
+import { AddServiceComponent } from "./admain/add-service/add-service.component";
+import { GetServicesComponent } from "./admain/get-services/get-services.component";
+import { UpdateServicesComponent } from './admain/update-services/UpdateServicesComponent';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,13 @@ import { LoginComponent } from "./login/login.component";
     ProductsComponent,
     FooterComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AddServiceComponent,
+    DashboardComponent,
+    GetServicesComponent,
+    UpdateServicesComponent,
+
+
 // إضافة RegisterComponent هنا
   ],
   imports: [
@@ -31,6 +41,15 @@ import { LoginComponent } from "./login/login.component";
     HttpClientModule, // استخدام HttpClientModule
     AppRoutingModule,
     RouterModule.forRoot([
+      {
+        path: 'dashboard', component: DashboardComponent, children: [
+          {
+            path: 'add-service', component: AddServiceComponent
+          },
+          { path: 'update-service/:serviceId', component: UpdateServicesComponent },
+
+        ]
+      },
       { path: '', component: CategoryComponent, pathMatch: 'full' },
       { path: 'products/:categoryId', component: ProductsComponent }, // مسار صفحة المنتجات
       { path: 'register', component: RegisterComponent } // مسار صفحة التسجيل

@@ -1,0 +1,31 @@
+<form #updateservices="ngForm" (ngSubmit)="updateService()" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+  <h2 style="text-align: center; margin-bottom: 20px;">Update Service</h2>
+
+  <div class="form-container">
+    <!-- Title Field -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Service Name</label>
+      <input type="text" id="Title" name="ServiceName" [(ngModel)]="serviceData.serviceName" required="required" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+
+    <!-- Blog Content Field -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="BlogCont" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Description</label>
+      <textarea id="BlogCont" name="ServiceDescription" [(ngModel)]="serviceData.serviceDescription" required="required" rows="8" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+      <span class="text-danger" id="BlogCont-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+
+    <!-- Main Image Field -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Image" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Main Image</label>
+      <input type="file" id="Image" name="ServiceImage" (change)="changeImage($event)" class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Image-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group" style="text-align: center;">
+      <button type="submit" class="btn btn-primary" style="padding: 10px 20px; background-color: #007bff; border: none; border-radius: 5px; color: white; font-size: 1em; cursor: pointer;">Update</button>
+    </div>
+  </div>
+</form>

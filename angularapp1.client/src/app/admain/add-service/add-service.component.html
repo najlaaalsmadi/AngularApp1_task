@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 class="mt-5">إضافة خدمة جديدة</h2>
+  <form #addServiceForm="ngForm" (ngSubmit)="addnewService(addServiceForm.value)" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+
+    <div class="form-group">
+      <label for="serviceName">اسم الخدمة</label>
+      <input type="text" id="serviceName" class="form-control" name="serviceName" ngModel required />
+      <div  class="text-danger">
+        يجب إدخال اسم الخدمة.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="serviceDescription">وصف الخدمة</label>
+      <textarea id="serviceDescription" class="form-control" name="serviceDescription" ngModel required></textarea>
+      <div  class="text-danger">
+        يجب إدخال وصف الخدمة.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Image">صورة الخدمة</label>
+      <input type="file" id="Image" class="form-control" name="ServiceImage" (change)="changeImage($event)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="addServiceForm.invalid">إضافة خدمة</button>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+<div class="row" style="min-height: 100vh;">
+  <!-- استخدام min-height لجعل الصفحه تمتد لطول الشاشة -->
+  <div class="col-4 d-flex flex-column">
+    <!-- استخدام d-flex و flex-column لجعل العناصر في العمود ترتب عموديًا -->
+    <div class="card shadow flex-fill">
+      <!-- استخدام flex-fill لجعل البطاقة تمتد -->
+      <div class="card-header bg-primary text-white">
+        <h5>لوحة التحكم</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="#" class="text-decoration-none text-dark">
+              <i class="bi bi-house"></i> الصفحة الرئيسية
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="/dashboard/add-service" class="text-decoration-none text-dark">
+              <i class="bi bi-person"></i> اضافه خدمة
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="/dashboard/get-services" class="text-decoration-none text-dark">
+              <i class="bi bi-gear"></i> عرض الخدمات
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="#" class="text-decoration-none text-dark">
+              <i class="bi bi-envelope"></i> الرسائل
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="#" class="text-decoration-none text-dark">
+              <i class="bi bi-graph-up"></i> التحليلات
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-auto">
+      <!-- هذا سيجعل الجزء السفلي ينزل إلى الأسفل -->
+      <p>جميع الحقوق محفوظة © 2024</p> <!-- محتوى إضافي في الأسفل إذا أردت -->
+    </div>
+  </div>
+  <div class="col-8 py-3">
+   <router-outlet></router-outlet>
+
+  </div>
+</div>
+<!-- تأكد من إضافة Bootstrap Icons في الـ <head> -->

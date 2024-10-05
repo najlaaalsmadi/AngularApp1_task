@@ -1,0 +1,21 @@
+<h2>Our Services</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Service Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of services">
+      <td>{{ service.serviceName }}</td>
+      <td>{{ service.serviceDescription }}</td>
+      <td><img [src]="service.serviceImage" alt="Service Image" width="100" height="100"></td>
+      <td>
+        <button (click)="navigateToUpdate(service.serviceId)" class="btn btn-warning">تحديث</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
